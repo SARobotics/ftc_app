@@ -59,8 +59,8 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Pushbot: Autonomous Right", group="Pushbot")
-public class Autonomous_Turn_Right extends LinearOpMode {
+@Autonomous(name="Pushbot: Autonomous Left", group="Pushbot")
+public class Autonomous_Drive_Straight extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
@@ -71,7 +71,7 @@ public class Autonomous_Turn_Right extends LinearOpMode {
     static final double     TURN_SPEED    = 0.5;
 
     @Override
-    public void runOpMode() throws InterruptedException {
+     public void runOpMode() throws InterruptedException {
 
         /*
          * Initialize the drive system variables.
@@ -90,7 +90,7 @@ public class Autonomous_Turn_Right extends LinearOpMode {
 
         while (opModeIsActive() && (runtime.seconds() < 10.0)) {
         }
-
+        
         // Step 1:  Drive
         robot.leftMotor.setPower(FORWARD_SPEED);
         robot.rightMotor.setPower(FORWARD_SPEED);
@@ -101,47 +101,7 @@ public class Autonomous_Turn_Right extends LinearOpMode {
             idle();
         }
 
-        // Step 2:  Spin right
-        robot.leftMotor.setPower(TURN_SPEED);
-        robot.rightMotor.setPower(-TURN_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.3)) {
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            idle();
-        }
-
-        // Step 3:  Drive forward
-        robot.leftMotor.setPower(FORWARD_SPEED);
-        robot.rightMotor.setPower(FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 2.0)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            idle();
-        }
-
-        // Step 4:  Spin left
-        robot.leftMotor.setPower(TURN_SPEED);
-        robot.rightMotor.setPower(-TURN_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.4)) {
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            idle();
-        }
-
-        // Step 5:  Drive forward
-        robot.leftMotor.setPower(FORWARD_SPEED);
-        robot.rightMotor.setPower(FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 5)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            idle();
-        }
-
-        // Step 6:  Stop.
+        // :  Stop.
         robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0);
 

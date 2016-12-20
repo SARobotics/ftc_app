@@ -88,7 +88,10 @@ public class Autonomous_Turn_Left extends LinearOpMode {
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
-        // Step 1:  Drive forward for 3 seconds
+        while (opModeIsActive() && (runtime.seconds() < 10.0)) {
+        }
+
+        // Step 1:  Drive
         robot.leftMotor.setPower(FORWARD_SPEED);
         robot.rightMotor.setPower(FORWARD_SPEED);
         runtime.reset();
@@ -98,17 +101,17 @@ public class Autonomous_Turn_Left extends LinearOpMode {
             idle();
         }
 
-        // Step 2:  Spin left for 1.3 seconds
+        // Step 2:  Spin left
         robot.leftMotor.setPower(-TURN_SPEED);
         robot.rightMotor.setPower(TURN_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.3)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             idle();
         }
 
-        // Step 3:  Drive forward for 2 seconds
+        // Step 3:  Drive forward
             robot.leftMotor.setPower(FORWARD_SPEED);
             robot.rightMotor.setPower(FORWARD_SPEED);
             runtime.reset();
@@ -118,27 +121,27 @@ public class Autonomous_Turn_Left extends LinearOpMode {
                 idle();
         }
 
-        // Step 4:  Spin left for 1.3 seconds
+        // Step 4:  Spin left
         robot.leftMotor.setPower(-TURN_SPEED);
         robot.rightMotor.setPower(TURN_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.4)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             idle();
         }
 
-        // Step 5:  Drive forward for 3.5 seconds
+        // Step 5:  Drive forward
         robot.leftMotor.setPower(FORWARD_SPEED);
         robot.rightMotor.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3.5)) {
+        while (opModeIsActive() && (runtime.seconds() < 5)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             idle();
         }
 
-        // Step 4:  Stop.
+        // :  Stop.
         robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0);
 
