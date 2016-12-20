@@ -60,7 +60,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  */
 
 @Autonomous(name="Pushbot: Autonomous Right", group="Pushbot")
-public class Autonomous_Turn_Right extends LinearOpMode {
+Autonomous_Turn_Right extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware

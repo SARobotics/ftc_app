@@ -98,21 +98,41 @@ public class Autonomous_Turn_Left extends LinearOpMode {
             idle();
         }
 
-        // Step 2:  Spin right for 1.3 seconds
+        // Step 2:  Spin left for 1.3 seconds
         robot.leftMotor.setPower(-TURN_SPEED);
         robot.rightMotor.setPower(TURN_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.3)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             idle();
         }
 
-        // Step 3:  Drive forward for 6 seconds
+        // Step 3:  Drive forward for 2 seconds
+            robot.leftMotor.setPower(FORWARD_SPEED);
+            robot.rightMotor.setPower(FORWARD_SPEED);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < 2.0)) {
+                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                telemetry.update();
+                idle();
+        }
+
+        // Step 4:  Spin left for 1.3 seconds
+        robot.leftMotor.setPower(-TURN_SPEED);
+        robot.rightMotor.setPower(TURN_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
+            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+            idle();
+        }
+
+        // Step 5:  Drive forward for 3.5 seconds
         robot.leftMotor.setPower(FORWARD_SPEED);
         robot.rightMotor.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 7.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 3.5)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             idle();
