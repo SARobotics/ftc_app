@@ -59,7 +59,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Pushbot: Autonomous Left", group="Pushbot")
+@Autonomous(name="Pushbot: Autonomous Drive Straight", group="Pushbot")
 public class Autonomous_Drive_Straight extends LinearOpMode {
 
     /* Declare OpMode members. */
@@ -88,9 +88,7 @@ public class Autonomous_Drive_Straight extends LinearOpMode {
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
-        while (opModeIsActive() && (runtime.seconds() < 10.0)) {
-        }
-        
+
         // Step 1:  Drive
         robot.leftMotor.setPower(FORWARD_SPEED);
         robot.rightMotor.setPower(FORWARD_SPEED);

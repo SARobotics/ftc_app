@@ -103,8 +103,17 @@ public class PushbotTeleopTank_Iterative_2_Controls extends OpMode{
         right = -gamepad1.right_stick_y;
         robot.leftMotor.setPower(left);
         robot.rightMotor.setPower(right);
-        // Use gamepad left & right Bumpers to open and close the claw
 
+        // Use gamepad left & right Bumpers to open and close the claw
+        if (gamepad2.right_bumper)
+            clawOffset += CLAW_SPEED;
+        else if (gamepad2.left_bumper)
+            clawOffset -= CLAW_SPEED;
+
+        // Move both servos to new position.  Assume servos are mirror image of each other.
+        clawOffset = Range.clip(clawOffset, -0.5, 0.5);
+        robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
+        robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
         if (gamepad2.dpad_down)

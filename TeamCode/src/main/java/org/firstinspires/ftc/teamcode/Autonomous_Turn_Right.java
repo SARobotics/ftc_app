@@ -88,8 +88,7 @@ public class Autonomous_Turn_Right extends LinearOpMode {
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
-        while (opModeIsActive() && (runtime.seconds() < 10.0)) {
-        }
+        sleep(10000);
 
         // Step 1:  Drive
         robot.leftMotor.setPower(FORWARD_SPEED);
@@ -121,11 +120,11 @@ public class Autonomous_Turn_Right extends LinearOpMode {
             idle();
         }
 
-        // Step 4:  Spin left
+        // Step 4:  Spin right
         robot.leftMotor.setPower(TURN_SPEED);
         robot.rightMotor.setPower(-TURN_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.4)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.3)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             idle();
