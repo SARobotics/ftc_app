@@ -89,7 +89,7 @@ public class Autonomous_Drive_Straight extends LinearOpMode {
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
 
-        // Step 1:  Drive
+        // Step 1:  Drive Back for 1 seconds
         robot.leftMotor.setPower(-FORWARD_SPEED);
         robot.rightMotor.setPower(-FORWARD_SPEED);
         runtime.reset();
@@ -98,6 +98,38 @@ public class Autonomous_Drive_Straight extends LinearOpMode {
             telemetry.update();
             idle();
         }
+         //Step 2: Drive foward for 1 seconds
+         robot.leftMotor.setPower(FOWARD_SPEED);
+         robot.rightMotor.setPower(FOWARD_SPEED);
+         while (opModeIsActive() && (runtime.seconds() < 2.0)){
+             telemetry.addData("Path", "Leg 1: %1.0f S Elapsed", runtime.seconds());
+             telemetry.update();
+             idle();
+         }
+         //Step 3: Turn Left
+         robot.leftMotor.setPower(-FOWARD_SPEED);
+         robot.rightMotor.setPower(FOWARD_SPEED);
+         while (opModeIsActive() && (runtime.seconds() < 1.5)){
+             telemetry.addData("Path", "Leg 2: %1.75 S Elapsed", runtime.seconds());
+             telemetry.update();
+             idle();
+         }
+         //Step 4: Drive foward for 1 seconds
+         robot.leftMotor.setPower(FOWARD_SPEED);
+         robot.rightMotor.setPower(FOWARD_SPEED);
+         while (opModeIsActive() && (runtime.seconds() < 2.0)){
+             telemetry.addData("Path", "Leg 1: %1.0f S Elapsed", runtime.seconds());
+             telemetry.update();
+             idle();
+         }
+         //Step 5: Turn Left
+         robot.leftMotor.setPower(-FOWARD_SPEED);
+         robot.rightMotor.setPower(FOWARD_SPEED);
+         while (opModeIsActive() && (runtime.seconds() < 1.5)){
+             telemetry.addData("Path", "Leg 2: %1.75 S Elapsed", runtime.seconds());
+             telemetry.update();
+             idle();
+         }
 
         // :  Stop.
         robot.leftMotor.setPower(0);
