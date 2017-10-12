@@ -67,8 +67,8 @@ public class Autonomous_Drive_Straight extends LinearOpMode {
     private ElapsedTime     runtime = new ElapsedTime();
 
 
-    static final double     FORWARD_SPEED = 0.6;
-    static final double     TURN_SPEED    = 0.5;
+    static final double     FORWARD_SPEED = 0.8;
+    static final double     TURN_SPEED    = 0.7;
 
     @Override
      public void runOpMode() throws InterruptedException {
@@ -90,11 +90,11 @@ public class Autonomous_Drive_Straight extends LinearOpMode {
 
 
         // Step 1:  Drive
-        robot.leftMotor.setPower(FORWARD_SPEED);
-        robot.rightMotor.setPower(FORWARD_SPEED);
+        robot.leftMotor.setPower(-FORWARD_SPEED);
+        robot.rightMotor.setPower(-FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+        while (opModeIsActive() && (runtime.seconds() < 5.0)) {
+            telemetry.addData("Path", "Leg 1: %1.0f S Elapsed", runtime.seconds());
             telemetry.update();
             idle();
         }
